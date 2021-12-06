@@ -72,9 +72,7 @@ class BinarizeLinear(nn.Linear):
         super(BinarizeLinear, self).__init__(*kargs, **kwargs)
 
     def forward(self, input):
-
-        if input.size(1) != 784:
-            input.data=Binarize(input.data)
+        input.data=Binarize(input.data)
         if not hasattr(self.weight,'org'):
             self.weight.org=self.weight.data.clone()
         self.weight.data=Binarize(self.weight.org)
