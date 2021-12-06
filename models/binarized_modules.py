@@ -10,8 +10,10 @@ import numpy as np
 
 def Binarize(tensor,quant_mode='det'):
     if quant_mode=='det':
+        # 1 if x >= 0 else -1
         return tensor.sign()
     else:
+        # stochastic binarization function with hard sigmoid
         return tensor.add_(1).div_(2).add_(torch.rand(tensor.size()).add(-0.5)).clamp_(0,1).round().mul_(2).add_(-1)
 
 
