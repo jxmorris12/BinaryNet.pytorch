@@ -103,6 +103,8 @@ def main():
     # create model
     logging.info("creating model %s", args.model)
     model = models.__dict__[args.model]
+    print(model)
+    exit()
 
 
     model_config = {'input_size': args.input_size, 'dataset': args.dataset, 'num_classes': output_dim}
