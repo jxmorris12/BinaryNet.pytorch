@@ -104,6 +104,7 @@ def main():
 
     model = model(**model_config)
     logging.info("created model with configuration: %s", model_config)
+    print(model)
 
     # optionally resume from a checkpoint
     if args.evaluate:
